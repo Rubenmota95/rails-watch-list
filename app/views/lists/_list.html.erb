@@ -1,6 +1,6 @@
 <div id="<%= dom_id list %>">
-  <p>
-    <strong>List:</strong>
+  <p class="">
     <%= list.name %>
+    <%= link_to "Add a Movie", new_list_bookmark_path(list), class: "btn btn-gradient" %>
   </p>
 </div>
