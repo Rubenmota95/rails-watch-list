@@ -1,3 +1,9 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : asset_path('list_background.jpg') %>);">
+  <div class="container">
+    <h1 class="text-center"><%= @list.name %> List</h1>
+  </div>
+</div>
+
 <div class="d-flex justify-content-between">
   <h1>My List</h1>
 </div>

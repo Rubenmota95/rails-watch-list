@@ -4,13 +4,14 @@
     <p class="text-center">Add a bookmark</p>
   </div>
 </div>
-  <h1>Lists</h1>
-<div id="lists">
-  <div></div>
-  <% @lists.each do |list| %>
-    <%= render list %>
-    <p>
+<div class="cards">
+  <div id="lists">
+    <div></div>
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : asset_path('list_background.jpg') %>);">
+      <%= list.name %>
       <%= link_to "Show this List", list, class: "btn btn-primary" %>
-    </p>
-  <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
