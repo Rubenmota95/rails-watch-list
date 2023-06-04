@@ -1,7 +1,24 @@
-<h1>New Bookmark</h1>
-                  <%# PARENT, CHILD %>
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie, prompt: "Choose a Movie" %>
-  <%= f.input :comment %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
+<div class="container mt-4" style="width: 400px">
+  <h1>Add a Movie to the <%= @list.name %> list</h1>
+                    <%# PARENT, CHILD %>
+  <div class="form-inputs">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :movie_id,
+                prompt: "Choose a Movie",
+                collection: Movie.all,
+                input_html: {
+                  multiple: true,
+                  class: 'multiple-select',
+                  data: { controller: "tom-select" }
+                },
+                wrapper_html: {
+                  data: { allow_clear: true }
+                } %>
+      <%= f.input :comment %>
+      <div class="d-flex justify-content-between mt-4">
+        <%= link_to "Cancel", list_path(@list), class: "btn btn-gradient-danger"%>
+        <%= f.button :submit, class: 'btn btn-gradient' %>
+      </div>
+    <% end %>
+  </div>
+</div>
